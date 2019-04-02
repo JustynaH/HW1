@@ -82,8 +82,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if(pause==true) {
-                    onPause();
+                if(pause) {
+                    buttonPlayer.pause();
+                    pause = false;
                 } else {
                     Play();
                 }
@@ -165,8 +166,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
+    protected void onDestroy() {
+        super.onDestroy();
         buttonPlayer.release();
     }
 }
